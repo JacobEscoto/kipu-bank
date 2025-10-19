@@ -30,3 +30,5 @@ Este smart contract esta diseñado para depositar ETH, al igual que retirar fond
     - Debes ingresar el address del usuario al que quieres obtener el balance.
     - Dar click al boton de **getBalance**. Te devolverá el balance del usuario solicitado.
 
+> [!NOTE]
+> Recuerda que al consultar el balance se devolverá en WEI
