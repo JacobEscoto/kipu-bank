@@ -90,19 +90,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "LIMIT_WITHDRAWAL",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "balanceTotal",
 				"outputs": [
 					{
@@ -168,6 +155,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "limitWithdrawal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "retirosTotales",
 				"outputs": [
 					{
@@ -199,12 +199,80 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"getBalance(address)": {
+					"params": {
+						"user": "Direccion del usuario"
+					}
+				},
+				"withdraw(uint256)": {
+					"params": {
+						"amount": "Cantidad a retirar"
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
+			"errors": {
+				"AccionNoPermitida()": [
+					{
+						"notice": "Error que registra cuando se hace un receive o fallback"
+					}
+				],
+				"FondosInsuficientes()": [
+					{
+						"notice": "Error que se registra cuando no hay fondos suficientes para retirar"
+					}
+				],
+				"LimiteDepositoExcedido()": [
+					{
+						"notice": "Error que registra cuando un usuario deposita mas del limite establecido en el contrato"
+					}
+				],
+				"LimiteRetiroExcedido()": [
+					{
+						"notice": "Error que registra cuando un usuario hace un retiro que excede el limite establecido"
+					}
+				],
+				"TransferenciaFallida()": [
+					{
+						"notice": "Error que registra cuando la transferencia ha fallado"
+					}
+				],
+				"ValorCero()": [
+					{
+						"notice": "Error cuando el usuario quiere depositar / registrar un monto de 0 ETH"
+					}
+				]
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"balanceTotal()": {
+					"notice": "balanceTotal Contador del balance total en kipu bank"
+				},
+				"bankCap()": {
+					"notice": "bankCap Define el limite de saldo en depositos en el banco"
+				},
+				"deposit()": {
+					"notice": "Depositar fondos en la boveda"
+				},
+				"depositosTotales()": {
+					"notice": "depositosTotales Contador para ver cuantos depositos se han realizado"
+				},
+				"getBalance(address)": {
+					"notice": "Permite ver el balance de un usuario"
+				},
+				"limitWithdrawal()": {
+					"notice": "limitWithdrawal Define el limite de saldo en Retiros (ETHER)"
+				},
+				"retirosTotales()": {
+					"notice": "retirosTotales Contador para ver cuantos retiros se han realizado"
+				},
+				"withdraw(uint256)": {
+					"notice": "Retirar un monto de la boveda"
+				}
+			},
 			"version": 1
 		}
 	},
@@ -225,11 +293,11 @@
 	},
 	"sources": {
 		"contracts/KipuBank.sol": {
-			"keccak256": "0x502698d16fd0c22f322006db7d85d9e62d0ce4f32e35451fad4d105d84037c68",
+			"keccak256": "0x217fb516b7697122dc572ef31859b39a0113319baeeef5b6be75ac4a368d2860",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2fd0fc7d84b934c2344eb67048ea5aeb6d7ae884c0deca0f673c4efbef64f6e1",
-				"dweb:/ipfs/QmdPBNp3zJUvkNvxZpHM5A8RvXcH4CodxURjM9qjMxDnm2"
+				"bzz-raw://6281782b50e2824f9dc7f19b4cffeff991230f8638c241724fe76cc791a852b4",
+				"dweb:/ipfs/QmStZQyCQpLcjVGSZ5nKfLUU4K1kdFzFEcfiA8QDFRFQxA"
 			]
 		}
 	},
